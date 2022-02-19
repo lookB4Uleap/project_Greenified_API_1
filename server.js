@@ -5,7 +5,7 @@ const app = express()
 const cors = require('cors')
 
 mongoose.connect(
-    process.env.DATABASE_URL, 
+    process.env.DATABASE_URL,
     { useNewUrlParser: true, useUnifiedTopology: true },
     (req, res) => {
         console.log('Database Found')
@@ -22,6 +22,9 @@ app.use(express.json())
 const postsRoute = require('./routes/posts')
 app.use('/post', postsRoute)
 
-app.listen(4001, () => {
+const usersRoute = require('./routes/users')
+app.use('/user', usersRoute)
+
+app.listen(process.env.PORT, () => {
     console.log('Server Started')
 })

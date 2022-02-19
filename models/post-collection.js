@@ -12,21 +12,10 @@ const postSchema = new mongoose.Schema(
         },
         photoUrl: {
             type: String,
-            required: true
         },
         post: {
             type: String,
             required: true
-        },
-        linkNames: {
-            type: [String],
-            required: true,
-            default: []
-        },
-        links: {
-            type: [String],
-            required: true,
-            default: []
         },
         likes: {
             type: Number,
@@ -47,8 +36,15 @@ const postSchema = new mongoose.Schema(
             type: Date,
             required: true,
             default: Date.now
-        }
+        },
+        comments: [
+            {
+                body: String,
+                userId: String,
+                dateOfCreation: Date,
+            }
+        ]
     }
 )
 
-module.exports = mongoose.model('Post', postSchema)
+module.exports = mongoose.model('PostCollection', postSchema)

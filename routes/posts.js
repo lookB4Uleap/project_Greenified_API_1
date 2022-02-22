@@ -51,7 +51,22 @@ router.post('/', async (req, res) => {
         photoUrl: req.body.photoUrl
     })
 
+    const data = {
+        userId: req.body.userId,
+        post: req.body.post
+    }
+
     try {
+        // fetch('https://projectGreenifiedAPI4.anishsarkar.repl.co/api/score', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then(response => response.json())
+        //     .then(data => console.log('Success', data))
+        //     .catch(err => console.log(err))
         const newPost = await post.save()
         res.status(201).json(newPost)
     } catch (error) {

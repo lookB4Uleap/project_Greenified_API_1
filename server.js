@@ -25,6 +25,9 @@ app.use('/post', postsRoute)
 const usersRoute = require('./routes/users')
 app.use('/user', usersRoute)
 
+const newsRoute = require('./routes/news')
+app.use('/news', newsRoute)
+
 app.listen(process.env.PORT, () => {
     console.log('Server Started')
 })
